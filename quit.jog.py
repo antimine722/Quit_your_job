@@ -56,10 +56,10 @@ mischief_js = f"""
         escapePhaseClicks++;
         
         if (escapePhaseClicks === 1) {{
-            questionText.innerText = "真的要離職了嗎？";
+            questionText.innerText = "Fifi真的要離職了嗎？";
             btn.innerText = "是";
         }} else if (escapePhaseClicks === 5) {{
-            questionText.innerText = "看著我的眼睛再說一次？";
+            questionText.innerText = "看著我的眼睛再說一次🥲？";
         }} else if (escapePhaseClicks > 12) {{
             endMischief();
         }}
@@ -70,7 +70,7 @@ mischief_js = f"""
 
         if (!hasStarted) {{
             hasStarted = true;
-            questionText.innerText = "你捨得走嗎？";
+            questionText.innerText = "你捨得走嗎😭？";
             moveButton();
         }}
     }};
@@ -98,10 +98,10 @@ mischief_js = f"""
         btn.style.top = "75%";
         btn.style.transform = "translate(-50%, -50%) scale(1.1)";
         
-        btn.innerText = "Fifi畢業快樂！";
+        btn.innerText = "祝妳未來順利！";
         btn.style.backgroundColor = "#28a745";
         
-        questionText.innerText = "祝妳未來順利！";
+        questionText.innerText = "Fifi畢業快樂🥹";
         questionText.style.color = "#28a745";
         
         // 圖片放大一點
