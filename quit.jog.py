@@ -70,7 +70,7 @@ mischief_js = f"""
 
         if (!hasStarted) {{
             hasStarted = true;
-            questionText.innerText = "想點？看妳有沒有那個手速！";
+            questionText.innerText = "你捨得走嗎？";
             moveButton();
         }}
     }};
@@ -98,10 +98,10 @@ mischief_js = f"""
         btn.style.top = "75%";
         btn.style.transform = "translate(-50%, -50%) scale(1.1)";
         
-        btn.innerText = "畢業快樂！Fifi";
+        btn.innerText = "Fifi畢業快樂！";
         btn.style.backgroundColor = "#28a745";
         
-        questionText.innerText = "祝妳前程似錦，有空回來看看！";
+        questionText.innerText = "祝妳未來順利！";
         questionText.style.color = "#28a745";
         
         // 圖片放大一點
