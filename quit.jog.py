@@ -1,57 +1,79 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-# ... 之前的程式碼 ...
-
-# 核心：確保 mischief_js 變數開頭沒有多餘空格
 mischief_js = """
-<div id="container" style="height: 450px; width: 100%; position: relative; border: 1px solid #ddd; border-radius: 15px; overflow: hidden; background-color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-    <h2 id="question" style="margin-bottom: 30px; font-family: sans-serif; color: #333; text-align: center; padding: 0 20px;">要離職了嗎?</h2>
-    <button id="catchMe" style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); padding: 15px 35px; background-color: #FF4B4B; color: white; border: none; border-radius: 50px; cursor: pointer; transition: all 0.05s ease; font-size: 18px; font-weight: bold; z-index: 10;">確定</button>
+<div id="container" style="height: 450px; width: 100%; position: relative; border: 1px solid #ddd; border-radius: 15px; overflow: hidden; background-color: #f8f9fa; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <h2 id="question" style="margin-bottom: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; text-align: center; padding: 0 20px; transition: all 0.3s;">要離職了嗎?</h2>
+    <button id="catchMe" style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); padding: 12px 30px; background-color: #FF4B4B; color: white; border: none; border-radius: 50px; cursor: pointer; transition: left 0.15s ease-out, top 0.15s ease-out; font-size: 18px; font-weight: bold; z-index: 10; box-shadow: 0 4px 15px rgba(255,75,75,0.3);">確定</button>
 </div>
 
 <script>
-    let totalClicks = 0;
     let escapePhaseClicks = 0;
+    let hasStarted = false;
     const btn = document.getElementById('catchMe');
     const questionText = document.getElementById('question');
     const container = document.getElementById('container');
 
+    // 核心邏輯：滑鼠一靠近就逃跑
+    btn.onmouseover = function() {
+        if (!hasStarted) return; // 第一次點擊前不逃跑
+        
+        moveButton();
+        escapePhaseClicks++;
+        
+        if (escapePhaseClicks === 1) {
+            questionText.innerText = "真的要離職了嗎？";
+            btn.innerText = "是";
+        } else if (escapePhaseClicks === 5) {
+            questionText.innerText = "真的真的真的確定要離職了嗎？";
+            questionText.style.color = "#FF4B4B";
+        } else if (escapePhaseClicks > 12) {
+            // 結束惡作劇
+            endMischief();
+        }
+    };
+
+    // 第一次必須點擊才開始遊戲
     btn.onclick = function() {
-        totalClicks++;
-        if (totalClicks === 1) {
-            questionText.innerText = "真的要離職了嗎?";
-            btn.style.left = "25%";
-            btn.style.top = "60%";
-        } else if (totalClicks >= 2) {
-            escapePhaseClicks++;
-            if (escapePhaseClicks === 1) {
-                questionText.innerText = "真的真的真的確定要離職了嗎?";
-                btn.innerText = "是";
-            }
+        if (!hasStarted) {
+            hasStarted = true;
+            questionText.innerText = "想點？沒那麼容易！";
             moveButton();
-            if (escapePhaseClicks > 3) {
-                questionText.innerText = "Fifi";
-                btn.style.top = "65%";
-                btn.style.left = "50%";
-                btn.innerText = "畢業快樂";
-                btn.style.backgroundColor = "#28a745";
-                btn.onclick = null;
-            }
         }
     };
 
     function moveButton() {
-        const padding = 80;
-        const maxX = container.clientWidth - btn.clientWidth - padding;
-        const maxY = container.clientHeight - btn.clientHeight - padding;
-        const newX = Math.random() * maxX + padding/2;
-        const newY = Math.random() * (maxY - 150) + 150;
+        const btnWidth = btn.offsetWidth;
+        const btnHeight = btn.offsetHeight;
+        const contWidth = container.clientWidth;
+        const contHeight = container.clientHeight;
+
+        // 計算安全邊距，避免按鈕跑出框外或貼邊
+        const padding = 50;
+        
+        // 隨機生成新座標
+        const newX = Math.random() * (contWidth - btnWidth - padding * 2) + padding;
+        const newY = Math.random() * (contHeight - btnHeight - padding * 2) + padding;
+
         btn.style.left = newX + 'px';
         btn.style.top = newY + 'px';
+        btn.style.transform = 'translate(0, 0)'; // 取消原本的中心對齊偏移
+    }
+
+    function endMischief() {
+        btn.onmouseover = null;
+        btn.style.transition = "all 0.5s ease";
+        btn.style.left = "50%";
+        btn.style.top = "65%";
+        btn.style.transform = "translate(-50%, -50%)";
+        btn.innerText = "畢業快樂";
+        btn.style.backgroundColor = "#28a745";
+        btn.style.boxShadow = "0 4px 15px rgba(40,167,69,0.3)";
+        questionText.innerText = "好啦，祝 Fifi 未來順利！";
+        questionText.style.color = "#28a745";
     }
 </script>
-""" # 確保這三個引號的最前面沒有空格
+"""
 
 components.html(mischief_js, height=550)
 
