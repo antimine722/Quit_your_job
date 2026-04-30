@@ -7,7 +7,7 @@ import streamlit.components.v1 as components
 mischief_js = """
 <div id="container" style="height: 450px; width: 100%; position: relative; border: 1px solid #ddd; border-radius: 15px; overflow: hidden; background-color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center;">
     <h2 id="question" style="margin-bottom: 30px; font-family: sans-serif; color: #333; text-align: center; padding: 0 20px;">要離職了嗎?</h2>
-    <button id="catchMe" style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); padding: 15px 35px; background-color: #FF4B4B; color: white; border: none; border-radius: 50px; cursor: pointer; transition: all 0.2s ease; font-size: 18px; font-weight: bold; z-index: 10;">確定</button>
+    <button id="catchMe" style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); padding: 15px 35px; background-color: #FF4B4B; color: white; border: none; border-radius: 50px; cursor: pointer; transition: all 0.1s ease; font-size: 18px; font-weight: bold; z-index: 10;">確定</button>
 </div>
 
 <script>
@@ -27,14 +27,14 @@ mischief_js = """
             escapePhaseClicks++;
             if (escapePhaseClicks === 1) {
                 questionText.innerText = "真的確定要離職了嗎?";
-                btn.innerText = "不要跑！";
+                btn.innerText = "是";
             }
             moveButton();
             if (escapePhaseClicks > 3) {
-                questionText.innerText = "🎉 畢業快樂！";
+                questionText.innerText = "是";
                 btn.style.top = "65%";
                 btn.style.left = "50%";
-                btn.innerText = "祝前程似錦";
+                btn.innerText = "Fifi畢業快樂";
                 btn.style.backgroundColor = "#28a745";
                 btn.onclick = null;
             }
@@ -54,3 +54,6 @@ mischief_js = """
 """ # 確保這三個引號的最前面沒有空格
 
 components.html(mischief_js, height=550)
+
+
+
