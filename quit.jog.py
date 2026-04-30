@@ -60,7 +60,7 @@ mischief_js = f"""
 
         escapePhaseClicks++;
         if (escapePhaseClicks === 1) {{
-            questionText.innerText = "Fifi真的要離職了嗎🥲？";
+            questionText.innerText = "你捨得走嗎😭？";
             btn.innerText = "是";
         }} else if (escapePhaseClicks > 12) {{
             endMischief();
@@ -74,7 +74,7 @@ mischief_js = f"""
         changeImage();
         if (!hasStarted) {{
             hasStarted = true;
-            questionText.innerText = "你捨得走嗎😭？";
+            questionText.innerText = "真的要離職了嗎😭？";
             handleEscape(new Event('click'));
         }}
     }};
