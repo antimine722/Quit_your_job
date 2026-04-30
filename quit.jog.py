@@ -37,7 +37,7 @@ mischief_js = """
     btn.onclick = function() {
         if (!hasStarted) {
             hasStarted = true;
-            questionText.innerText = "想點？沒那麼容易！";
+            questionText.innerText = "要離職了嗎？";
             moveButton();
         }
     };
@@ -69,13 +69,14 @@ mischief_js = """
         btn.innerText = "畢業快樂";
         btn.style.backgroundColor = "#28a745";
         btn.style.boxShadow = "0 4px 15px rgba(40,167,69,0.3)";
-        questionText.innerText = "好啦，祝 Fifi 未來順利！";
+        questionText.innerText = "祝 Fifi 未來順利";
         questionText.style.color = "#28a745";
     }
 </script>
 """
 
 components.html(mischief_js, height=550)
+
 
 
 
