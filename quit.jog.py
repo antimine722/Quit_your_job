@@ -51,10 +51,10 @@ mischief_js = f"""
         escapePhaseClicks++;
         
         if (escapePhaseClicks === 1) {{
-            questionText.innerText = "Fifi要離職了嗎？";
+            questionText.innerText = "真的要離職了嗎？";
             btn.innerText = "是";
         }} else if (escapePhaseClicks === 5) {{
-            questionText.innerText = "真的要離職了嗎？";
+            questionText.innerText = "妳看這照片，捨得走嗎？";
         }} else if (escapePhaseClicks > 12) {{
             endMischief();
         }}
@@ -66,7 +66,7 @@ mischief_js = f"""
 
         if (!hasStarted) {{
             hasStarted = true;
-            questionText.innerText = "妳捨得走嗎？";
+            questionText.innerText = "想點？看妳有沒有那個手速！";
             moveButton();
         }}
     }};
@@ -93,17 +93,18 @@ mischief_js = f"""
         btn.style.top = "70%";
         btn.style.transform = "translate(-50%, -50%) scale(1.1)";
         
-        btn.innerText = "Fifi畢業快樂！";
+        btn.innerText = "畢業快樂！Fifi";
         btn.style.backgroundColor = "#28a745";
         btn.style.boxShadow = "0 6px 20px rgba(40,167,69,0.5)";
         
-        questionText.innerText = "祝妳未來一帆風順！";
+        questionText.innerText = "好啦，不鬧了，祝妳未來一帆風順！";
         questionText.style.color = "#155724";
         questionText.style.fontSize = "26px";
     }}
 </script>
 """
 
+components.html(mischief_js, height=550)
 
 
 
