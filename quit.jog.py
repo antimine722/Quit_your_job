@@ -12,7 +12,7 @@ mischief_js = f"""
         <img id="decoImage" src="{GITHUB_BASE_URL}ci01.jpg" style="width: 100%; height: 100%; object-fit: cover;">
     </div>
 
-    <h2 id="question" style="margin-bottom: 30px; font-family: sans-serif; color: #333; text-align: center; padding: 0 40px; transition: all 0.3s; font-size: 24px;">要離職了嗎?</h2>
+    <h2 id="question" style="margin-bottom: 30px; font-family: sans-serif; color: #333; text-align: center; padding: 0 40px; transition: all 0.3s; font-size: 24px;">Fifi要離職了嗎?</h2>
     
     <button id="catchMe" style="position: absolute; top: 75%; left: 50%; transform: translate(-50%, -50%); padding: 12px 35px; background-color: #FF4B4B; color: white; border: none; border-radius: 50px; cursor: pointer; transition: left 0.15s ease-out, top 0.15s ease-out; font-size: 18px; font-weight: bold; z-index: 10; box-shadow: 0 5px 15px rgba(255,75,75,0.3);">確定</button>
 </div>
