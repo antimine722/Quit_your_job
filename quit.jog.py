@@ -12,7 +12,7 @@ mischief_js = f"""
         <img id="decoImage" src="{GITHUB_BASE_URL}ci01.jpg" style="width: 100%; height: 100%; object-fit: cover;">
     </div>
 
-    <h2 id="question" style="margin-bottom: 30px; font-family: sans-serif; color: #333; text-align: center; padding: 0 40px; transition: all 0.3s; font-size: 24px;">要離職了嗎?</h2>
+    <h2 id="question" style="margin-bottom: 30px; font-family: sans-serif; color: #333; text-align: center; padding: 0 40px; transition: all 0.3s; font-size: 24px;">Fifi要離職了嗎?</h2>
     
     <button id="catchMe" style="position: absolute; top: 75%; left: 50%; transform: translate(-50%, -50%); padding: 12px 35px; background-color: #FF4B4B; color: white; border: none; border-radius: 50px; cursor: pointer; transition: left 0.15s ease-out, top 0.15s ease-out; font-size: 18px; font-weight: bold; z-index: 10; box-shadow: 0 5px 15px rgba(255,75,75,0.3);">確定</button>
 </div>
@@ -60,7 +60,7 @@ mischief_js = f"""
 
         escapePhaseClicks++;
         if (escapePhaseClicks === 1) {{
-            questionText.innerText = "真的要離職了嗎？";
+            questionText.innerText = "Fifi真的要離職了嗎🥲？";
             btn.innerText = "是";
         }} else if (escapePhaseClicks > 12) {{
             endMischief();
@@ -74,7 +74,7 @@ mischief_js = f"""
         changeImage();
         if (!hasStarted) {{
             hasStarted = true;
-            questionText.innerText = "想點？看妳有沒有那個手速！";
+            questionText.innerText = "你捨得走嗎😭？";
             handleEscape(new Event('click'));
         }}
     }};
@@ -86,9 +86,9 @@ mischief_js = f"""
         btn.style.left = "50%";
         btn.style.top = "75%";
         btn.style.transform = "translate(-50%, -50%) scale(1.1)";
-        btn.innerText = "畢業快樂！Fifi";
+        btn.innerText = "祝妳未來順利！";
         btn.style.backgroundColor = "#28a745";
-        questionText.innerText = "祝妳前程似錦，有空回來看看！";
+        questionText.innerText = "Fifi畢業快樂🥹";
         questionText.style.color = "#28a745";
     }}
 </script>
